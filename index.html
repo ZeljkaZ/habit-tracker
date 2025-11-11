@@ -1,0 +1,115 @@
+<!--Doctype declaration - tells the browser that this document is HTML 5-->
+<!DOCTYPE html>
+<!--Root element of the page, the content wrapped with html element is HTML document-->
+<!--Language set to english-->
+<html lang="en">
+  <!-- Head element contains metadata, page title and links to external stylesheets; not visible in the browser-->
+  <head>
+    <!--All characters are supported-->
+    <meta charset="utf-8" />
+    <!--Page responsive on all devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Page title displayed in browser tab-->
+    <title>Habit Tracker</title>
+    <!--Link to external stylesheet-->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <!--The visible content of the page starts here-->
+  <body>
+    <!-- Main is semantic element for the main content of the page-->
+    <main class="main">
+      <!--Header section-->
+      <header class="header">
+        <h1>Habit tracker</h1>
+        <p>Add habits, tick your day, and keep your streaks going!</p>
+      </header>
+
+      <!--Inatructions for using the app-->
+      <section class="section-tip" aria-live="polite">
+        <!--Aria-live used for assistive technology announcments; "polite" - announcing changes without interrupting the user-->
+        <strong>Tip:</strong> Click a day cell to toggle. Use Tab to focus, then
+        Space or Enter to toggle.
+      </section>
+
+      <!--UI for adding a habit-->
+      <!--Form that allows user to add a new habit to track-->
+      <section class="card" aria-labelledby="add-title">
+        <!--Aria-labeledby identifies another element whose text should be used by screen readers as a label for this element.-->
+        <h2 id="add-title">Add a habit</h2>
+        <!--Form with the input for habit name. Required attribute means that empty input cannot be submitted-->
+        <form id="habit-form" class="habit-form">
+          <label for="habit-name" class="sr-only">Habit name</label>
+          <!--sr-only hides the label but keeps it accessible to screen readers-->
+          <input
+            id="habit-name"
+            name="habitName"
+            type="text"
+            required 
+            placeholder="e.g. Drink two litres of water"
+            autocomplete="off"
+          />
+          <!--Button that submits the form to add a habit-->
+          <button type="submit" class="btn">Add</button>
+        </form>
+      </section>
+
+      <!--Habit tracker table (week overview) - displays habits with the checkboxes for 7 days-->
+      <section class="card" aria-labelledby="tracker-title">
+        <div class="tracker-header">
+          <h2 id="tracker-title">This week</h2>
+        <!--The table that displays all habits-->
+        <div class="tracker-table">
+          <div class="tracker-grid">
+            <!--Headers for table columns-->
+            <div>Habit</div>
+            <div>D-6</div>
+            <div>D-5</div>
+            <div>D-4</div>
+            <div>D-3</div>
+            <div>D-2</div>
+            <div>Yesterday</div>
+            <div>Today</div>
+            <div>Streak</div>
+            <div>Actions</div>
+          </div>
+          <!--JavaScript inserst habit rows here-->
+          <div id="rows"></div>
+        </div>
+      </section>
+
+      <!--Data management section-->
+      <!--Different buttons for exporting/importing JSON or reseting everything -->
+      <section class="card" aria-labelledby="manage-title">
+        <h2 id="manage-title">Manage data</h2>
+        <div class="manage-buttons">
+          <button id="export-json">Export JSON</button>
+          <!--Label is used to style a hidden file input (for importing data)-->
+          <label>
+            Import JSON
+            <input
+              id="import-json"
+              type="file"
+              accept="application/json"
+              hidden
+            />
+          </label>
+          <!--Danger (red) button for resetting all data-->
+          <button id="reset-all" class="danger">Reset all</button>
+        </div>
+        <p class="note">
+          Data is stored locally in your browser using localStorage.
+        </p>
+      </section>
+
+      <!--Footer section-->
+      <footer class="footer">
+        Built with HTML, CSS and JavaScript. No server required.
+      </footer>
+    </main>
+
+    <!--External JavaScript file is linked here-->
+    <script src="app.js" defer></script>
+    <!--Defer attribute makes JavaScript run after HTML is fully loaded-->
+  </body>
+</html>

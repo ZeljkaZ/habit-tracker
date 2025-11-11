@@ -1,0 +1,225 @@
+/* --- ROOT SECTION ---*/
+/* Defined css variables for consistent colors */
+:root {
+  --brand-1: #02698e;
+  --brand-2: #47cffd;
+  --ink: #0b3b58;
+  --muted: #66788a;
+  --ring: #b3e6ff;
+}
+
+/* --- BOX SIZING --- */
+/* Border-box applied to all elements on the page */
+* {
+  box-sizing: border-box;
+}
+
+/* --- HTML & BODY --- */
+/* Making sure that body takes full viewport height (full height of the browser vindow) */
+html,
+body {
+  height: 100%;
+}
+
+/* --- BODY STYLING --- */
+body {
+  margin: 0; /* removing the browser's default margin */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif; /* Setting a stack of fonts for text - the browser will pick the first available */
+  background: #f0f4f8; /* sets a background for the whole page */
+  color: #333; /* text colour */
+  line-height: 1.6; /* spacing between the lines of text */
+}
+/* added for accesibility - creates focus ring that appears around the element when it's focused */
+button:focus,
+input:focus {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* --- MAIN LAYOUT --- */
+.main {
+  max-width: 980px; /* maximum width of the content */
+  margin: 0 auto; /* top and bottom margins are 0, ane left and right are set to auto, which centers the content horizontally */
+  padding: 20px; /* adds space inside the container */
+  width: 100%; /* width of the container */
+}
+
+/* --- HEADER --- */
+.header {
+  background: linear-gradient(
+    135deg,
+    var(--brand-1),
+    var(--brand-2)
+  ); /* creates gradient using primary and seconday color defined as variables in ROOT section */
+  color: #fff; /* text color */
+  padding: 24px 20px; /* adding space inside header, 24px for top and bottom and 20px on the sides */
+  border-radius: 12px; /* rounds the corners of the header */
+  max-width: 980px; /* prevents the header from stretching too wide on larger screens */
+}
+
+/* removing default margins */
+.header h1 {
+  margin: 0 0 6px;
+}
+.header p {
+  margin: 0;
+}
+
+/* --- TIP/INSTRUCTION SECTION --- */
+.section-tip {
+  background: #e8f9ff; /* sets background color */
+  border-left: 6px solid var(--brand-1); /* adds vertical line on the left side of the section */
+  padding: 12px; /* adds extra space inside the container */
+  border-radius: 8px; /* round edges */
+  margin: 12px 0 16px; /* adds spacing outside the box */
+}
+
+/* --- CARD SECTIONS --- */
+.card {
+  background: #fff; /* sets card background color to white for contrast */
+  border-radius: 12px; /* round borders */
+  padding: 18px; /* add space inside the card */
+  margin: 12px 0; /* adds vertical space outside the card - on the top and bottom */
+  box-shadow: /* sligh shadow applied, to make the card looks like its floating */ 0
+      1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.card h2 {
+  margin: 0 0 8px; /* removes default margin and adds extra space under heading */
+  color: var(--ink); /* --ink color (defined in ROOT section) used for text */
+}
+
+/* --- FORM --- */
+.habit-form {
+  display: flex; /* flexbox used to align the input and button */
+  gap: 8px; /* space between input and button */
+  align-items: center; /* input and button vertically centered */
+}
+
+.habit-form input {
+  flex: 1; /* imput takes up remaining space in the row */
+  padding: 10px 12px; /* internal spacing inside input, top& bottom 10px, left&right 12px */
+  border: 1px solid #dbe7f0; /* solid border */
+  border-radius: 8px; /* rounded edges */
+  outline: none; /* removes default focus */
+}
+
+.btn {
+  background: #4ba1cc; /*background color */
+  color: #fff; /* text color*/
+  border: none; /* no border */
+  padding: 10px 14px; /* top and bottom padding is 10px, left and right is 14px */
+  border-radius: 8px; /* rounded edges */
+  cursor: pointer; /* pointer shows up when hover over button */
+  transition: filter 0.15s ease-in-out; /* smooth hover effect */
+}
+
+.btn:hover {
+  filter: brightness(1.25); /* button lightens on hover */
+}
+
+/* --- TRACKER TABLE --- */
+/* Header section for tracker table */
+.tracker-header {
+  display: flex; /* header tites are arranged in a row */
+  align-items: baseline; /* lining up text along baseline */
+  justify-content: space-between; /* spreads out items with space in between */
+  gap: 12px; /* creating 12px gap in between items */
+  flex-wrap: wrap; /* in case that a screen is too small, elements wrap to next line */
+}
+
+/* Container around the tracker table */
+.tracker-table {
+  overflow-x: auto; /* makes the table scroll horizontally if the content cannot fit the screen */
+  margin-top: 8px; /* space above table */
+}
+
+/* Grid for the tracker */
+.tracker-grid {
+  display: grid; /* CSS grid used to layout columns */
+  grid-template-columns: 1.6fr repeat(7, 0.9fr) 0.8fr 1fr; /* column widths */
+  align-items: center; /* vertically centered content in each cell */
+  border-bottom: 1px solid #eef2f6; /* light border at the bottom of each row */
+  background: #f8fbfe; /* row background */
+  font-weight: 600; /* bold text */
+}
+
+/* Cells inside tracker grid */
+.tracker-grid > div {
+  padding: 10px; /* inner spacing */
+  color: var(--ink); /* dark text */
+}
+
+/* --- MANAGE SECTION BUTTONS / LABELS --- */
+/* Container for all buttons ans labels */
+.manage-buttons {
+  display: flex; /* arranging element in the row */
+  gap: 8px; /* space between elemnts in the same row */
+  flex-wrap: wrap; /* wrapping buttons to the next line if the screen is too small */
+}
+
+/* Applies same styles to buttons and labels */
+.manage-buttons button,
+.manage-buttons label {
+  display: inline-flex; /* elements are in the same row and text is centered */
+  align-items: center; /* vertically centers text */
+  justify-content: center; /* horizontally centers text */
+  height: 36px; /* consistent height */
+  padding: 10px 14px; /* create inside space, top ans bottom 14px, left and right 14 px */
+  background: #eef7ff; /* background color */
+  color: #046f95; /* text color */
+  border: none; /* no border */
+  border-radius: 8px; /* border rounded */
+  cursor: pointer; /* pointer cursor shows when hovering over */
+  font-family: inherit; /* match rest of the page */
+  font-size: 1rem; /* consistent text size */
+  line-height: 1; /* prevent extra spacing */
+  text-align: center; /* centers text horizontally */
+  transition: filter 0.15s ease-in-out; /* smooth hover effect */
+}
+
+/* Hover effect for both buttons and labels */
+.manage-buttons button:hover,
+.manage-buttons label:hover {
+  filter: brightness(1.25); /* button/label gets brighter when hovered over */
+}
+
+/* Special styling for the danger (reset) button */
+.manage-buttons .danger {
+  background: #c71f23; /* Red color to indicate danger */
+  color: #fff; /* white color for text for increased contrast */
+}
+
+/* --- NOTE TEXT --- */
+.note {
+  color: var(
+    --muted
+  ); /* muted color (from ROOT section) for not crucial information */
+  font-size: 0.95rem; /* font size */
+  margin: 10px 0 0; /* top margin 10px, no bottom or side margins */
+}
+
+/* --- FOOTER SECTION --- */
+.footer {
+  background: #acacac; /* light gray background */
+  color: #fff; /* white text */
+  font-size: 0.95rem; /* same font size as NOTE section */
+  max-width: 980px; /* same max width as main content for maintaining consistency */
+  margin: 20px auto; /* footer centerednon the page horizontally */
+  padding: 16px 20px; /* bottom and top padding 16px, left and right 20px */
+  border-radius: 12px; /* rounded corners */
+  text-align: center; /* centers text inside footer */
+  box-sizing: border-box; /* includes padding in width */
+}
+
+/* --- ACCESSIBILITY SECTION --- */
+/* sr-only means that it is used for screen readers only */
+.sr-only {
+  position: absolute; /* takes it out of the normal page layout */
+  height: 1px; /* makes it small so that it is almost invisible  */
+  width: 1px; /* does the same horizontally  */
+  overflow: hidden; /* hides any content if accidentally appears */
+  clip: rect(1px, 1px, 1px, 1px); /* clips the element so that it is invisible */
+}
