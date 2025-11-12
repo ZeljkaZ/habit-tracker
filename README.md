@@ -54,7 +54,7 @@ You can run the Habit Tracker directly in your browser — no installation or se
 
 - Download or clone this repository:
 
-git clone https://github.com/YOUR_USERNAME/habit-tracker.git
+git clone https://github.com/ZeljkaZ/habit-tracker
 
 - Open the project folder in Visual Studio Code
 - Install the Live Server extension (if not already installed)
