@@ -31,7 +31,7 @@ User can add habits, track progress across the week, and monitor streaks, and al
 
 You can run the Habit Tracker directly in your browser — no installation or server required.
 
-### Option 1 — Download ZIP (no Git needed)
+### Option 1: Download ZIP (no Git needed)
 
 - Go to the GitHub repository
 - Click the green Code button (Download ZIP)
