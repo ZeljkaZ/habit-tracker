@@ -12,8 +12,8 @@ User can add habits, track progress across the week, and monitor streaks, and al
 
 ## Relevant Links
 
-[Live App](https://zeljkaz.github.io/habit-tracker/)
-[GitHub Repository](https://github.com/ZeljkaZ/habit-tracker)
+- [Live App](https://zeljkaz.github.io/habit-tracker/)
+- [GitHub Repository](https://github.com/ZeljkaZ/habit-tracker)
 
 ## Key Features
 
