@@ -95,6 +95,26 @@ Speaking of future improvements, I am also planning to improve error handling (s
 
 ## Relevant Screenshots
 
-```
+### Cloning remote repository and opening project in VSC
 
-```
+![Cloning Repo](Screenshots/Screenshot1.jpeg)
+
+### Example of error from Console
+
+![Error 1](Screenshots/Screenshot2.jpeg)
+
+### Another error example
+
+![Error 2](Screenshots/Screenshot3.jpeg)
+
+### Commiting and pushing changes using VSC
+
+![Commiting changes](Screenshots/Screenshot4.jpeg)
+
+### Deploying website
+
+![Deployment](Screenshots/Screenshot5.jpeg)
+
+### Final look
+
+![Final look](Screenshots/Screenshot6.jpeg)
