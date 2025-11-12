@@ -275,7 +275,7 @@ function onToggleDay(e) {
 // Add or remove a checkmark for a specific habit and date
 function toggleLog(habitId, dateKey) {
   const habit = state.habits.find((h) => h.id === habitId); // Find the habit in state by using habit id 
-  if (habit) { n// If habit exists 
+  if (habit) { // If habit exists 
     habit.log[dateKey] = !habit.log[dateKey]; // toggle the value 
     saveState(state); // save the updated state to local storage 
     render(); // render the page again so that the information in the table updates 
