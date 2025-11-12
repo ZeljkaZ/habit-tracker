@@ -49,6 +49,18 @@
             placeholder="e.g. Drink two litres of water"
             autocomplete="off"
           />
+
+          <!-- Dropdown menu to select habit category - required for creating the habit  -->
+          <select name="habit-category" id="habit-category" required> 
+            <option value="">Select category</option>
+            <option value="health">Health</option>
+            <option value="fitness">Fitness</option>
+            <option value="productivity">Productivity</option>
+            <option value="learning">Learning</option>
+            <option value="hobby">Hobby</option>
+            <option value="other">Other</option>
+          </select>
+
           <!--Button that submits the form to add a habit-->
           <button type="submit" class="btn">Add</button>
         </form>

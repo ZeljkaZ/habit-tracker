@@ -1,9 +1,9 @@
 /* --- ROOT SECTION ---*/
 /* Defined css variables for consistent colors */
 :root {
-  --brand-1: #02698e;
-  --brand-2: #47cffd;
-  --ink: #0b3b58;
+  --brand-1: #fb8500;
+  --brand-2: #219ebc;
+  --ink: #023047;
   --muted: #66788a;
   --ring: #b3e6ff;
 }
@@ -68,7 +68,7 @@ input:focus {
 
 /* --- TIP/INSTRUCTION SECTION --- */
 .section-tip {
-  background: #e8f9ff; /* sets background color */
+  background: #ffb703; /* sets background color */
   border-left: 6px solid var(--brand-1); /* adds vertical line on the left side of the section */
   padding: 12px; /* adds extra space inside the container */
   border-radius: 8px; /* round edges */
@@ -99,31 +99,55 @@ input:focus {
 }
 
 .habit-form input {
-  flex: 1; /* imput takes up remaining space in the row */
+  flex: 1; /* input takes up remaining space in the row */
   padding: 10px 12px; /* internal spacing inside input, top& bottom 10px, left&right 12px */
   border: 1px solid #dbe7f0; /* solid border */
   border-radius: 8px; /* rounded edges */
-  outline: none; /* removes default focus */
+}
+
+.habit-form select {
+  padding: 10px 12px; /* same padding as text input */
+  min-width: 0;
+  border: 1px solid #dbe7f0; /* solid border */
+  border-radius: 8px; /* rounded edges */
+  background-color: #fff; /* consistent background */
+  color: #333; /* readable text color */
+  appearance: none; /* removes default OS dropdown style */
+  cursor: pointer; /* pointer shows up when hover over button */
+}
+
+.habit-form option {
+  color: #333; /* consistent text color for dropdown items */
 }
 
 .btn {
-  background: #4ba1cc; /*background color */
+  background: var(--brand-2); /*background color */
   color: #fff; /* text color*/
   border: none; /* no border */
   padding: 10px 14px; /* top and bottom padding is 10px, left and right is 14px */
   border-radius: 8px; /* rounded edges */
   cursor: pointer; /* pointer shows up when hover over button */
   transition: filter 0.15s ease-in-out; /* smooth hover effect */
+  flex: 0 0 auto; /* button keeps natural size */
 }
 
 .btn:hover {
   filter: brightness(1.25); /* button lightens on hover */
 }
 
+/* Adds focus ring for form interactive elements */
+.habit-form input:focus,
+.habit-form select:focus,
+.habit-form button:focus {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+
 /* --- TRACKER TABLE SECTION --- */
 /* Header section for tracker table */
-.tracker-header {
-  display: flex; /* header tites are arranged in a row */
+.tracker-header { 
+  display: flex; /* header titles are arranged in a row */
   align-items: baseline; /* lining up text along baseline */
   justify-content: space-between; /* spreads out items with space in between */
   gap: 12px; /* creating 12px gap in between items */
@@ -169,15 +193,15 @@ input:focus {
   height: 36px; /* consistent height */
   padding: 10px 14px; /* create inside space, top ans bottom 14px, left and right 14 px */
   background: #eef7ff; /* background color */
-  color: #046f95; /* text color */
+  color: var(--brand-2); /* text color */
   border: none; /* no border */
   border-radius: 8px; /* border rounded */
   cursor: pointer; /* pointer cursor shows when hovering over */
-  font-family: inherit; /* match rest of the page */
+  font-family: inherit; /* matching the rest of the page */
   font-size: 1rem; /* consistent text size */
   line-height: 1; /* prevent extra spacing */
   text-align: center; /* centers text horizontally */
-  transition: filter 0.15s ease-in-out; /* smooth hover effect */
+  transition: filter 0.15s ease-in-out; /* smooths hover effect */
 }
 
 /* Hover effect for both buttons and labels */
@@ -203,7 +227,7 @@ input:focus {
 
 /* --- FOOTER SECTION --- */
 .footer {
-  background: #acacac; /* light gray background */
+  background: var(--brand-2); /* light gray background */
   color: #fff; /* white text */
   font-size: 0.95rem; /* same font size as NOTE section */
   max-width: 980px; /* same max width as main content for maintaining consistency */

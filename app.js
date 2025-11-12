@@ -6,6 +6,7 @@ let state = JSON.parse(localStorage.getItem("habitTrackerState")) || {
   habits: [],
 };
 
+
 // todayKey function returns today's date in YYYY-MM-DD format
 // that date is used a key in each habit log
 function todayKey() {
@@ -30,10 +31,11 @@ const weekKeys = getWeekKeys();
 
 // Creating new habit object
 // newHabit(name) function returns an object representing a single habit
-function newHabit(name) {
+function newHabit(name, category) {
   return {
     id: Math.random().toString(36).slice(2, 9), // a unique id for the habit
     name: name, // name of the habit entered by the user
+    category: category,
     log: {}, // object storing which days are complited - updates straight away after user ticks/unticks the day
   };
 }
@@ -125,22 +127,38 @@ function render() {
 
   // Loop through each habit in the state object and create a separate row for each
   state.habits.forEach((h) => {
-    // Create  a container div for the habit row
+    // Creates  a container div for the habit row
     const row = document.createElement("div");
     row.setAttribute(
       "style",
       "display:grid;grid-template-columns:1.6fr repeat(7,.9fr) .8fr 1fr;align-items:center;border-bottom:1px solid #eef2f6;"
     );
 
-    // Create a first column - a habit name
+    // Creates a first column - a habit name and category icon
     const nameCol = document.createElement("div");
-    // Insert the actual habit name
     nameCol.setAttribute(
       "style",
       "padding:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"
     );
-    nameCol.textContent = h.name;
-    row.appendChild(nameCol); // add to the row
+
+    // Checks the category for this habit and chooses an corresponding icon
+    let icon = "";
+    if (h.category === "health") icon = "🌱";
+    else if (h.category === "fitness") icon = "🏃‍♂️";
+    else if (h.category === "productivity") icon = "📈";
+    else if (h.category === "learning") icon = "📚";
+    else if (h.category === "hobby") icon = "🎨";
+    else if (h.category === "other") icon ="🌀";
+
+    // Create a span for icon ( to be hidden from screen readers sp that does not confure users)
+    const iconSpan = `<span aria-hidden="true">${icon}</span>`;
+
+    // Create a span for category text (screen readers only)
+    const srText = `<span class="sr-only">Category: ${h.category}</span>`;
+
+    // Set innerHTML so icon shows visually, but screen reader reads category
+    nameCol.innerHTML = `${iconSpan} ${h.name} ${srText}`;
+    row.appendChild(nameCol);
 
     // Create the columns for the 7 days (week log)
     weekKeys.forEach((k) => {
@@ -217,7 +235,7 @@ function render() {
     // Inline style for appearance
     tick.setAttribute(
       "style",
-      "background: #eef7ff;border:1px solid #7796adff;color: #046f95;padding:6px 10px;border-radius:8px;cursor:pointer; transition: 0.15s ease-in-out;"
+      "background: #eef7ff;border:1px solid #219ebc;color: #219ebc;padding:6px 10px;border-radius:8px;cursor:pointer; transition: 0.15s ease-in-out;"
     );
     // Hover effect  button brightens when hovered over
     tick.addEventListener("mouseenter", () => {
@@ -286,17 +304,30 @@ function toggleLog(habitId, dateKey) {
 // Add new habit via form
 // =====================================================================
 
-// Adding a listener to the form submission event 
+// adding a listener to the habit form submisison 
 document.getElementById("habit-form").addEventListener("submit", (e) => {
-  e.preventDefault(); // prevents default behaviour from submission (like reloading the page when the form is sublitted) - that way the habit dont gets lost 
-  const input = document.getElementById("habit-name"); // getting the input field where the user types habit name 
-  const name = input.value.trim(); // reads text and removes extra spaces at the start and end 
-  if (!name) return; // if the imput is empty, no changes are made 
+  e.preventDefault();
+  const input = document.getElementById("habit-name"); // get reference to habit name input
+  const categorySelect = document.getElementById("habit-category"); // get reference to habit category input
+  const name = input.value.trim();
+  const category = categorySelect.value;
 
-  state.habits.push(newHabit(name)); // creates a new habit and adding it to array 
-  saveState(state); // saving the updated State to local storage 
-  input.value = ""; // clearing the input field so that the new input can be typed 
-  render(); // rendering the table again so that the new habit can appear in the table 
+  if (!name || !category) return; // if either field is empty, stop - nothing gets saved
+
+  // Preventing duplicates - chekig if the habit with the same name or category exists 
+  const duplicate = state.habits.some(
+    (h) => h.name.toLowerCase() === name.toLowerCase() && h.category === category
+  );
+  if (duplicate) {
+    alert("This habit already exists!"); // Notifying user 
+    return; // exit without adding a habit
+  }
+
+  state.habits.push(newHabit(name, category)); // Create new habit object and add it to a state 
+  saveState(state); // saving to local storage
+  input.value = ""; // clearing input fields for the next habit
+  categorySelect.value = ""; // same as above
+  render(); //  rendering habit table again to show changes
 });
 
 
