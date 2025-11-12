@@ -21,7 +21,7 @@ body {
   height: 100%;
 }
 
-/* --- BODY STYLING --- */
+/* --- BODY SECTION --- */
 body {
   margin: 0; /* removing the browser's default margin */
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
@@ -45,7 +45,7 @@ input:focus {
   width: 100%; /* width of the container */
 }
 
-/* --- HEADER --- */
+/* --- HEADER SECTION --- */
 .header {
   background: linear-gradient(
     135deg,
@@ -75,7 +75,7 @@ input:focus {
   margin: 12px 0 16px; /* adds spacing outside the box */
 }
 
-/* --- CARD SECTIONS --- */
+/* --- CARD SECTION --- */
 .card {
   background: #fff; /* sets card background color to white for contrast */
   border-radius: 12px; /* round borders */
@@ -91,7 +91,7 @@ input:focus {
   color: var(--ink); /* --ink color (defined in ROOT section) used for text */
 }
 
-/* --- FORM --- */
+/* --- FORM SECTION --- */
 .habit-form {
   display: flex; /* flexbox used to align the input and button */
   gap: 8px; /* space between input and button */
@@ -120,7 +120,7 @@ input:focus {
   filter: brightness(1.25); /* button lightens on hover */
 }
 
-/* --- TRACKER TABLE --- */
+/* --- TRACKER TABLE SECTION --- */
 /* Header section for tracker table */
 .tracker-header {
   display: flex; /* header tites are arranged in a row */
@@ -152,7 +152,7 @@ input:focus {
   color: var(--ink); /* dark text */
 }
 
-/* --- MANAGE SECTION BUTTONS / LABELS --- */
+/* --- MANAGE SECTION BUTTONS & LABELS --- */
 /* Container for all buttons ans labels */
 .manage-buttons {
   display: flex; /* arranging element in the row */
