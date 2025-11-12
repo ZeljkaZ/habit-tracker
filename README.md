@@ -17,15 +17,14 @@ User can add habits, track progress across the week, and monitor streaks, and al
 
 ## Project Structure
 
+```text
 habit-tracker/
 │
-├── README.md # Project documentation
-├── app.js # JavaScript logic
-├── index.html # Main HTML file
-├── styles.css # CSS styles
-└── screenshots/ # Folder for screenshots used in README
-├── screenshot1.jpeg
-└── screenshot2.jpeg
+├── README.md       # Project documentation
+├── index.html      # Main HTML file
+├── app.js          # JavaScript logic
+├── styles.css      # CSS styles
+
 
 ## Key Features
 
@@ -106,3 +105,4 @@ However, a persisting challenge that I was unable to resolve was keyboard naviga
 Speaking of future improvements, I am also planning to improve error handling (so that, for example, only a valid string can be entered as a habit, and not any group of characters) and also to fix responsiveness on smaller screens, which I didn't do this time, as I was more focused on the app functionality. Overall, this project gave me a deeper understanding of front-end development, problem-solving when debugging issues, but also, how important it is to be careful with typing code and how useful a tool such as a Console can be for fixing the issues that will inevitably arise.
 
 ## Relevant Screenshots
+```
