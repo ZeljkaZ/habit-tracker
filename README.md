@@ -118,3 +118,17 @@ Speaking of future improvements, I am also planning to improve error handling (s
 ### Final look
 
 ![Final look](Screenshots/Screenshot6.jpeg)
+
+## Demo Video
+
+- [Demo Video](https://video.laurea.fi/media/HabitTracker_Demo/0_wk4y67fa)
+
+### Timestamps
+
+- 00:00 - Introduction
+- 00:20 - Objective and main functionalities
+- 00:46 - App architecture
+- 01:47 - JavaScript file overview
+- 02:16 - JS code example (explanatuion)
+- 02:56 - Demonstration of basic functionality
+- 4:47 - Challenges overview and conclusion
