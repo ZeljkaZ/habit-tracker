@@ -215,6 +215,13 @@ input:focus {
   background: #c71f23; /* Red color to indicate danger */
   color: #fff; /* white color for text for increased contrast */
 }
+ /* making sure all buttons and labels are focusable with keyboard navigation*/
+.manage-buttons button:focus,
+.manage-buttons label:focus-within {
+  outline: 2px solid var(--ring); /* visible outline */
+  outline-offset: 2px; /* spacing from element border */
+}
+
 
 /* --- NOTE TEXT --- */
 .note {
